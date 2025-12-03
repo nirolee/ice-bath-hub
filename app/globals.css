@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'JetBrains Mono', monospace;
+  
+  --ice-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --cold-gradient: linear-gradient(180deg, #0c4a6e 0%, #075985 50%, #0ea5e9 100%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(to bottom, #0a1929, #0c4a6e);
+  color: #e0f2fe;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 冰晶动效背景 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.ice-crystal {
+  animation: float 8s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #bae6fd 0%, #ffffff 50%, #bae6fd 100%);
+  background-size: 1000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* 文章Prose样式 */
+.prose-ice {
+  @apply text-ice-200;
+}
+
+.prose-ice h1, .prose-ice h2, .prose-ice h3, .prose-ice h4 {
+  @apply text-white font-display font-bold;
+}
+
+.prose-ice h2 {
+  @apply text-4xl mt-12 mb-6 pb-3 border-b border-ice-800;
+}
+
+.prose-ice h3 {
+  @apply text-2xl mt-8 mb-4;
+}
+
+.prose-ice p {
+  @apply mb-6 leading-relaxed;
+}
+
+.prose-ice a {
+  @apply text-ice-400 hover:text-ice-300 underline transition-colors;
+}
+
+.prose-ice strong {
+  @apply text-white font-bold;
+}
+
+.prose-ice ul, .prose-ice ol {
+  @apply my-6 ml-6 space-y-2;
+}
+
+.prose-ice li {
+  @apply leading-relaxed;
+}
+
+.prose-ice blockquote {
+  @apply border-l-4 border-ice-500 pl-6 py-2 my-6 italic bg-ice-900/20 rounded-r;
+}
+
+.prose-ice code {
+  @apply bg-ice-900/40 px-2 py-1 rounded text-sm text-ice-300;
+}
+
+.prose-ice table {
+  @apply w-full my-8 border-collapse;
+}
+
+.prose-ice th {
+  @apply bg-ice-900/60 text-left px-4 py-3 font-bold text-white border border-ice-700;
+}
+
+.prose-ice td {
+  @apply px-4 py-3 border border-ice-800;
+}
+
+.prose-ice hr {
+  @apply my-12 border-ice-700;
+}
